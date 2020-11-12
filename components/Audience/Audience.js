@@ -5,6 +5,7 @@ import styled, { keyframes } from "styled-components";
 import LocalizedLink from "components/LocalizedLink/LocalizedLink";
 
 import { getStrapiMedia } from "lib/media";
+import ScrollAnimation from "react-animate-on-scroll";
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -17,52 +18,36 @@ const Audience = ({ lang, data }) => {
 
   if (lang === "en") {
     audienceCircles = data.audience_section_en.statistics;
-  }
-  else if (lang === "fr") {
+  } else if (lang === "fr") {
     audienceCircles = data.audience_section_fr.statistics;
   }
 
   return (
     <AudienceWrapper>
       <Wrapper>
-        <Title>
-          {lang === "fr" && data.audience_section_fr.title}
-          {lang === "en" && data.audience_section_en.title}
-        </Title>
+        <ScrollAnimation
+          animateIn="fadeIn"
+          animateOnce={true}
+          duration={0.9}
+          offset={50}
+        >
+          <Title>
+            {lang === "fr" && data.audience_section_fr.title}
+            {lang === "en" && data.audience_section_en.title}
+          </Title>
+        </ScrollAnimation>
         <CirclesRow>
           <Col>
             {audienceCircles.map((item, i) =>
               i === 0 ? (
-                <Circle1 key={`${i}+${item.title}`}>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <CircleText>
-                    <h4>{item.title}</h4>
-                    <h2>{item.number}</h2>
-                    <p>{item.description}</p>
-                  </CircleText>
-                </Circle1>
-              ) : (
-                i === 1 && (
-                  <Circle2 key={`${i}+${item.title}`}>
+                <ScrollAnimation
+                  animateIn="fadeInUp"
+                  animateOnce={true}
+                  duration={0.9}
+                  offset={200}
+                  delay={100}
+                >
+                  <Circle1 key={`${i}+${item.title}`}>
                     <div></div>
                     <div></div>
                     <div></div>
@@ -88,7 +73,45 @@ const Audience = ({ lang, data }) => {
                       <h2>{item.number}</h2>
                       <p>{item.description}</p>
                     </CircleText>
-                  </Circle2>
+                  </Circle1>
+                </ScrollAnimation>
+              ) : (
+                i === 1 && (
+                  <ScrollAnimation
+                    animateIn="fadeInUp"
+                    animateOnce={true}
+                    duration={0.9}
+                    offset={200}
+                    delay={500}
+                  >
+                    <Circle2 key={`${i}+${item.title}`}>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <CircleText>
+                        <h4>{item.title}</h4>
+                        <h2>{item.number}</h2>
+                        <p>{item.description}</p>
+                      </CircleText>
+                    </Circle2>
+                  </ScrollAnimation>
                 )
               )
             )}
@@ -98,36 +121,14 @@ const Audience = ({ lang, data }) => {
             <Gradient />
             {[audienceCircles[2], audienceCircles[3]].map((item, i) =>
               i === 0 ? (
-                <Circle5 key={`${i}+${item.title}`}>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <CircleText>
-                    <h4>{item.title}</h4>
-                    <h2>{item.number}</h2>
-                    <p>{item.description}</p>
-                  </CircleText>
-                </Circle5>
-              ) : (
-                i === 1 && (
-                  <Circle4 key={`${i}+${item.title}`}>
+                <ScrollAnimation
+                  animateIn="fadeInUp"
+                  animateOnce={true}
+                  duration={0.9}
+                  offset={200}
+                  delay={700}
+                >
+                  <Circle5 key={`${i}+${item.title}`}>
                     <div></div>
                     <div></div>
                     <div></div>
@@ -153,7 +154,45 @@ const Audience = ({ lang, data }) => {
                       <h2>{item.number}</h2>
                       <p>{item.description}</p>
                     </CircleText>
-                  </Circle4>
+                  </Circle5>
+                </ScrollAnimation>
+              ) : (
+                i === 1 && (
+                  <ScrollAnimation
+                    animateIn="fadeInUp"
+                    animateOnce={true}
+                    duration={0.9}
+                    offset={200}
+                    delay={1100}
+                  >
+                    <Circle4 key={`${i}+${item.title}`}>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <CircleText>
+                        <h4>{item.title}</h4>
+                        <h2>{item.number}</h2>
+                        <p>{item.description}</p>
+                      </CircleText>
+                    </Circle4>
+                  </ScrollAnimation>
                 )
               )
             )}
@@ -315,6 +354,11 @@ const Circle = styled.div`
 const Col = styled.div`
   display: flex;
   position: relative;
+
+  .animated {
+    position: relative;
+    z-index: 200;
+  }
 
   ${Circle}:nth-child(2) {
     &::after {

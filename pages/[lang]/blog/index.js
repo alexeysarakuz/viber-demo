@@ -6,6 +6,7 @@ import Wrapper from "components/Wrapper/Wrapper";
 
 import Navigation from "components/Navigation/Navigation";
 import styled from "styled-components";
+import Seo from "components/Seo/Seo";
 
 import { getStrapiMedia } from "lib/media";
 import { useContext } from "react";
@@ -21,6 +22,7 @@ const Blog = ({ posts, blogpage }) => {
   return (
     <div>
       <Navigation lang={lang} />
+      <Seo seo={{ metaTitle: "Blog" }} />
       <Wrapper>
         <BlogPageTitle>
           {lang === "fr" && blogpage.content_fr.title}

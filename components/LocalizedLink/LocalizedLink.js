@@ -8,7 +8,7 @@ const LocalizedLink = ({ children, href }) => {
   const {
     query: { lang },
   } = useContext(GlobalContext);
-
+  
   return <Link href={`/${lang}${href}`}>{children}</Link>;
 };
 

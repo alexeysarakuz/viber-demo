@@ -1,7 +1,7 @@
 import React from "react";
 import { fetchAPI } from "lib/api";
 import styled from "styled-components";
-
+import Seo from "components/Seo/Seo";
 import Navigation from "components/Navigation/Navigation";
 
 import Header from "components/Header/Header";
@@ -28,10 +28,9 @@ const Home = ({ homepage }) => {
     advantages_fr,
   } = homepage;
 
-  console.log(homepage);
-
   return (
     <div>
+      <Seo seo={{ metaTitle: "Home" }} />
       <Navigation lang={lang} />
       <Header lang={lang} data={{ header_en, header_fr }} />
       <BusinessSolutions lang={lang} data={{ business_en, business_fr }} />

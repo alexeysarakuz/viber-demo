@@ -48,7 +48,7 @@ const Navigation = ({ lang }) => {
               ))}
           </Center>
           <Right>
-            <LocalizedLink href={navigation.link}>
+            <LocalizedLink href={navigation.navigation_fr.cta_link}>
               <Button>
                 {lang === "fr" && navigation.navigation_fr.cta_text}
                 {lang === "en" && navigation.navigation_en.cta_text}
@@ -116,12 +116,14 @@ const Right = styled.div``;
 const Button = styled.a`
   display: block;
   padding: 11px 33px;
+  padding-top: 13px;
   background: #ffffff;
   border: 1px solid #7566ed;
   box-sizing: border-box;
   border-radius: 8px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
+  cursor: pointer;
   font-size: 16px;
   line-height: 23px;
   text-align: center;

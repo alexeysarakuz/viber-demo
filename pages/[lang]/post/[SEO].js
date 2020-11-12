@@ -11,7 +11,7 @@ import { getStrapiMedia } from "lib/media";
 import ReactMarkdown from "react-markdown";
 import { useContext } from "react";
 import { GlobalContext } from "pages/_app";
-
+import Seo from "components/Seo/Seo";
 const Post = ({ post }) => {
   const {
     query: { lang },
@@ -21,6 +21,7 @@ const Post = ({ post }) => {
   console.log(data);
   return (
     <div>
+      <Seo seo={{ metaTitle: data.title }} />
       <Navigation lang={lang} />
       <Wrapper>
         <PostWrapper>

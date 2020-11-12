@@ -4,11 +4,11 @@ import styled from "styled-components";
 import LocalizedLink from "components/LocalizedLink/LocalizedLink";
 
 import { getStrapiMedia } from "lib/media";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const BusinessSolutions = ({ lang, data }) => {
-
   let solutions = [];
-  
+
   if (lang === "en") {
     solutions = data.business_en.Solutions;
   } else if (lang === "fr") {
@@ -22,33 +22,63 @@ const BusinessSolutions = ({ lang, data }) => {
           <Left>
             <PhoneWrapper>
               {lang === "en" && (
-                <Phone
-                  src={getStrapiMedia(data.business_en.image)}
-                  alt="preview of viber"
-                />
+                <ScrollAnimation
+                  animateIn="fadeInUp"
+                  animateOnce={true}
+                  duration={0.9}
+                  offset={50}
+                >
+                  <Phone
+                    src={getStrapiMedia(data.business_en.image)}
+                    alt="preview of viber"
+                  />
+                </ScrollAnimation>
               )}
               {lang === "fr" && (
-                <Phone
-                  src={getStrapiMedia(data.business_fr.image)}
-                  alt="preview of viber"
-                />
+                <ScrollAnimation
+                  animateIn="fadeInUp"
+                  animateOnce={true}
+                  duration={0.9}
+                  offset={50}
+                >
+                  <Phone
+                    src={getStrapiMedia(data.business_fr.image)}
+                    alt="preview of viber"
+                  />
+                </ScrollAnimation>
               )}
             </PhoneWrapper>
           </Left>
           <Right>
-            <Title>
-              {lang === "en" && data.business_en.title}
-              {lang === "fr" && data.business_fr.title}
-            </Title>
+            <ScrollAnimation
+              animateIn="fadeIn"
+              animateOnce={true}
+              duration={0.9}
+              offset={50}
+            >
+              <Title>
+                {lang === "en" && data.business_en.title}
+                {lang === "fr" && data.business_fr.title}
+              </Title>
+            </ScrollAnimation>
             <SolutionsList>
               {solutions.map((item, i) => (
-                <Solution key={i}>
-                  <img src={getStrapiMedia(item.image)} alt="ads" />
-                  <p>
-                    {lang === "en" && item.solution}
-                    {lang === "fr" && item.solution}
-                  </p>
-                </Solution>
+                <ScrollAnimation
+                  animateIn="fadeInUp"
+                  animateOnce={true}
+                  duration={0.9}
+                  delay={30 * i}
+                  key={i}
+                  offset={50}
+                >
+                  <Solution>
+                    <img src={getStrapiMedia(item.image)} alt="ads" />
+                    <p>
+                      {lang === "en" && item.solution}
+                      {lang === "fr" && item.solution}
+                    </p>
+                  </Solution>
+                </ScrollAnimation>
               ))}
             </SolutionsList>
           </Right>
@@ -94,6 +124,11 @@ const PhoneWrapper = styled.div`
   width: 235px;
   margin-left: 120px;
   position: relative;
+
+  .animated {
+    position: relative;
+    z-index: 100;
+  }
 
   &::after {
     content: "";

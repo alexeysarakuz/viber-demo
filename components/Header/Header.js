@@ -2,6 +2,7 @@ import React from "react";
 import Wrapper from "components/Wrapper/Wrapper";
 import styled from "styled-components";
 import LocalizedLink from "components/LocalizedLink/LocalizedLink";
+import ScrollAnimation from "react-animate-on-scroll";
 
 import { getStrapiMedia } from "lib/media";
 
@@ -10,30 +11,62 @@ const Header = ({ lang, data }) => (
     <Wrapper>
       <HeaderRow>
         <HeaderLeft>
-          <HeaderTitle>
-            {lang === "fr" && data.header_fr.title}
-            {lang === "en" && data.header_en.title}
-          </HeaderTitle>
-          <HeaderParagraph>
-            {lang === "fr" && data.header_fr.paragraph}
-            {lang === "en" && data.header_en.paragraph}
-          </HeaderParagraph>
-          <LocalizedLink href="/another1">
-            <HeaderButton>
-              {lang === "fr" && data.header_fr.cta_text}
-              {lang === "en" && data.header_en.cta_text}
-            </HeaderButton>
-          </LocalizedLink>
+          <ScrollAnimation
+            animateIn="fadeIn"
+            animateOnce={true}
+            duration={0.9}
+            offset={50}
+            delay={100}
+          >
+            <HeaderTitle>
+              {lang === "fr" && data.header_fr.title}
+              {lang === "en" && data.header_en.title}
+            </HeaderTitle>
+          </ScrollAnimation>
+          <ScrollAnimation
+            animateIn="fadeIn"
+            animateOnce={true}
+            duration={0.9}
+            offset={50}
+            delay={300}
+          >
+            <HeaderParagraph>
+              {lang === "fr" && data.header_fr.paragraph}
+              {lang === "en" && data.header_en.paragraph}
+            </HeaderParagraph>
+          </ScrollAnimation>
+          <ScrollAnimation
+            animateIn="fadeIn"
+            animateOnce={true}
+            duration={0.9}
+            offset={50}
+            delay={500}
+          >
+            <LocalizedLink href="/another1">
+              <HeaderButton>
+                {lang === "fr" && data.header_fr.cta_text}
+                {lang === "en" && data.header_en.cta_text}
+              </HeaderButton>
+            </LocalizedLink>
+          </ScrollAnimation>
         </HeaderLeft>
         <HeaderRight>
-          <HeaderRightRow>
-            <Chatting
-              src="/images/header/chatting.png"
-              alt="Comfortable chatting"
-            />
-            <Phone src="/images/header/iphone.png" alt="preview of viber" />
-            <Calls src="/images/header/calls.png" alt="Cool calls" />
-          </HeaderRightRow>
+          <ScrollAnimation
+            animateIn="fadeIn"
+            animateOnce={true}
+            duration={0.9}
+            offset={50}
+            delay={300}
+          >
+            <HeaderRightRow>
+              <Chatting
+                src="/images/header/chatting.png"
+                alt="Comfortable chatting"
+              />
+              <Phone src="/images/header/iphone.png" alt="preview of viber" />
+              <Calls src="/images/header/calls.png" alt="Cool calls" />
+            </HeaderRightRow>
+          </ScrollAnimation>
         </HeaderRight>
       </HeaderRow>
     </Wrapper>
@@ -91,6 +124,7 @@ const HeaderButton = styled.a`
   background: #7465ef;
   border-radius: 8px;
   padding: 15px 37px;
+  padding-top: 17px;
   color: #ffffff;
   font-style: normal;
   font-weight: 500;
@@ -103,7 +137,6 @@ const HeaderButton = styled.a`
 `;
 
 const HeaderRight = styled.div`
-
   &::after {
     content: "";
     position: absolute;
@@ -116,6 +149,11 @@ const HeaderRight = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 10;
+  }
+
+  .animated {
+    position: relative;
+    z-index: 15;
   }
 `;
 

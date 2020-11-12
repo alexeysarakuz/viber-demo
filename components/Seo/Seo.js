@@ -1,20 +1,18 @@
 import Head from "next/head";
-import { useContext } from "react";
-import { GlobalContext } from "../pages/_app";
-import { getStrapiMedia } from "../lib/media";
+import { getStrapiMedia } from "../../lib/media";
 
 const Seo = ({ seo }) => {
-  const { defaultSeo, siteName } = useContext(GlobalContext);
   const seoWithDefaults = {
-    ...defaultSeo,
     ...seo,
   };
+
+  console.log(seo);
+
+  const siteName = 'Viber';
+
   const fullSeo = {
     ...seoWithDefaults,
-    // Add title suffix
     metaTitle: `${seoWithDefaults.metaTitle} | ${siteName}`,
-    // Get full image URL
-    shareImage: getStrapiMedia(seoWithDefaults.shareImage),
   };
 
   return (
@@ -22,11 +20,12 @@ const Seo = ({ seo }) => {
       {fullSeo.metaTitle && (
         <>
           <title>{fullSeo.metaTitle}</title>
-          <meta property="og:title" content={fullSeo.metaTitle} />
-          <meta name="twitter:title" content={fullSeo.metaTitle} />
+          <link rel="icon" type="image/png" href="/images/favicon.png" />
+          {/* <meta property="og:title" content={fullSeo.metaTitle} />
+          <meta name="twitter:title" content={fullSeo.metaTitle} /> */}
         </>
       )}
-      {fullSeo.metaDescription && (
+      {/* {fullSeo.metaDescription && (
         <>
           <meta name="description" content={fullSeo.metaDescription} />
           <meta property="og:description" content={fullSeo.metaDescription} />
@@ -41,7 +40,7 @@ const Seo = ({ seo }) => {
         </>
       )}
       {fullSeo.article && <meta property="og:type" content="article" />}
-      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:card" content="summary_large_image" /> */}
     </Head>
   );
 };

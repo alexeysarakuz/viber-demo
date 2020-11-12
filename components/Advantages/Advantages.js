@@ -2,6 +2,7 @@ import React from "react";
 import Wrapper from "components/Wrapper/Wrapper";
 import styled from "styled-components";
 import LocalizedLink from "components/LocalizedLink/LocalizedLink";
+import ScrollAnimation from "react-animate-on-scroll";
 
 import { getStrapiMedia } from "lib/media";
 
@@ -19,19 +20,36 @@ const Advantages = ({ lang, data }) => {
       <TriangleTop src="/images/advantages/triangle.png" />
       <AdvantagesBackground>
         <Wrapper>
-          <Title>
-            {lang === "en" && data.advantages_en.title}
-            {lang === "fr" && data.advantages_fr.title}
-          </Title>
+          <ScrollAnimation
+            animateIn="fadeIn"
+            animateOnce={true}
+            duration={0.9}
+            offset={50}
+          >
+            <Title>
+              {lang === "en" && data.advantages_en.title}
+              {lang === "fr" && data.advantages_fr.title}
+            </Title>
+          </ScrollAnimation>
           <Gradient1 src="/images/advantages/gradient1.png" />
           <AdvantagesRow>
-            {advantages.map((item) => (
+            {advantages.map((item, num) => (
               <AdvantagesCol kay={item.title}>
-                <AdvantagesCircle>
-                  <img src={getStrapiMedia(item.icon)} alt={item.title} />
-                </AdvantagesCircle>
-                <h2>{item.title}</h2>
-                <p>{item.description}</p>
+                <ScrollAnimation
+                  animateIn="fadeInUp"
+                  animateOnce={true}
+                  duration={0.9}
+                  offset={100}
+                  delay={100 * num}
+                >
+                  <div>
+                    <AdvantagesCircle>
+                      <img src={getStrapiMedia(item.icon)} alt={item.title} />
+                    </AdvantagesCircle>
+                    <h2>{item.title}</h2>
+                    <p>{item.description}</p>
+                  </div>
+                </ScrollAnimation>
               </AdvantagesCol>
             ))}
           </AdvantagesRow>
