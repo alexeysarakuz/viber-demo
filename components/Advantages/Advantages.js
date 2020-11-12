@@ -26,7 +26,7 @@ const Advantages = ({ lang, data }) => {
           <Gradient1 src="/images/advantages/gradient1.png" />
           <AdvantagesRow>
             {advantages.map((item) => (
-              <AdvantagesCol>
+              <AdvantagesCol kay={item.title}>
                 <AdvantagesCircle>
                   <img src={getStrapiMedia(item.icon)} alt={item.title} />
                 </AdvantagesCircle>
